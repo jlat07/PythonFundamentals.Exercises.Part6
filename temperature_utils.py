@@ -34,4 +34,16 @@ def temperature_tuple(temperatures: Iterable, input_unit_of_measurement: str) ->
     :return: A tuple of tuples
     """
 
+    results = []
     
+    for item in temperatures:
+        if input_unit_of_measurement == "f":
+            results.append((float(item), float(convert_to_celsius(item))))
+        elif input_unit_of_measurement == "c":
+            results.append((float(item), float(convert_to_fahrenheit(item))))
+        else:
+            return tuple()
+        
+    return tuple(results)
+
+        
